@@ -2,6 +2,10 @@ const DashboardPage = () => {
   return (
     <>
       <h1>DashboardPage pageeee(Protected)</h1>
+      <h1>DashboardPage pageeee(Protected)</h1>
+      <h1>DashboardPage pageeee(Protected)</h1>
+      <h1>DashboardPage pageeee(Protected)</h1>
+      <h1>DashboardPage pageeee(Protected)</h1>
     </>
   );
 };

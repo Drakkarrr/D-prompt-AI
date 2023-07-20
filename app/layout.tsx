@@ -7,8 +7,9 @@ import { ClerkProvider } from '@clerk/nextjs';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'D-prompt',
-  description: 'AI platform for everyone',
+  title: 'D-prompt AI',
+  description:
+    'D-prompt-AI is a web based fullstack AI generation saas app platform that using artificial intelligence models to generate contents using prompt powered by modern powerful technologies.',
 };
 
 export default function RootLayout({

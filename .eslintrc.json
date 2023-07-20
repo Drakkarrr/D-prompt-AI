@@ -2,8 +2,9 @@
   "$schema": "https://json.schemastore.org/eslintrc",
   "root": true,
   "extends": [
-    "next/core-web-vitals",
+    "next",
     "prettier",
+    "next/core-web-vitals",
     "plugin:tailwindcss/recommended"
   ],
   "plugins": ["tailwindcss"],
