@@ -8,9 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "precommit": "lint-staged",
-    "test": "yarn lint"
+    "test": "yarn lint",
+    "prepare": "husky install"
   },
-
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -20,7 +20,6 @@
     "*.ts": "eslint --fix",
     "*.css": "stylelint --fix"
   },
-  
   "dependencies": {
     "@clerk/nextjs": "^4.22.1",
     "@radix-ui/react-slot": "^1.0.2",
@@ -50,6 +49,7 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-tailwindcss": "^3.13.0",
     "prettier": "^3.0.0",
-    "prettier-plugin-tailwindcss": "^0.4.1"
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "husky": "^8.0.0"
   }
 }

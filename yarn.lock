@@ -2116,6 +2116,9 @@ human-signals@^4.3.0:
   resolved "https://registry.npmjs.org/human-signals/-/human-signals-4.3.1.tgz"
   integrity sha512-nZXjEF2nbo7lIw3mgYjItAfgQXog3OjJogSbKa2CQIIvSGWcKgeJnQlNXip6NglNzYH45nSRiEVimMvYL8DDqQ==
 
+husky@^8.0.0:
+  version "8.0.3"
+
 ieee754@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz"
