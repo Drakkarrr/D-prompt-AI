@@ -10,7 +10,17 @@
     "precommit": "lint-staged",
     "test": "yarn lint"
   },
- 
+
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --fix",
+    "*.css": "stylelint --fix"
+  },
+  
   "dependencies": {
     "@clerk/nextjs": "^4.22.1",
     "@radix-ui/react-slot": "^1.0.2",
