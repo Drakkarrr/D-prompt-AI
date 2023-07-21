@@ -7,10 +7,6 @@ import { authMiddleware } from "@clerk/nextjs";
 export default authMiddleware({
     publicRoutes: [
         "/",
-        "/api/auth/[...nextauth]",
-        "/api/trpc/[trpc]",
-        "/api/trpc/[trpc]/[method]",
-        "/api/trpc/[trpc]/[method]/[id]",
     ],
 
 });
