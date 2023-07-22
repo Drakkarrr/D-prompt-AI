@@ -12,8 +12,10 @@ const DashboardLayout: React.FC<Props> = ({ children }: Props) => {
         <Sidebar />
       </div>
       <main className='pb-10 md:pl-72'>
-        <Navbar />
-        {children}
+        <div className='md:hidden'>
+          <Navbar />
+        </div>
+        <div className='hidden md:flex'>{children}</div>
       </main>
     </div>
   );
