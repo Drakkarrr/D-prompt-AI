@@ -8,7 +8,6 @@ export default authMiddleware({
     publicRoutes: [
         "/",
     ],
-
 });
 
 export const config = {
