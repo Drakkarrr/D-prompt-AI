@@ -15,7 +15,6 @@ import {
 
 import { Montserrat } from 'next/font/google';
 import { cn } from '@/lib/utils';
-import path from 'path';
 
 const montserrat = Montserrat({
   weight: '700',
@@ -74,7 +73,7 @@ const Sidebar = () => {
       <div className='flex-1 px-3 py-2'>
         <Link href='/dashboard' className='mb-14 flex items-center pl-3'>
           <div className='relative mr-4 h-10 w-10'>
-            <Image fill alt='Logo' src='/complogo.png' />
+            <Image fill sizes='80px' alt='Logo' src='/complogo.png' />
           </div>
           <h1 className={cn('text-2xl font-bold', montserrat.className)}>
             D-prompt
