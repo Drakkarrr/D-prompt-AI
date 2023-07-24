@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import {
+  CodeIcon,
   ImageIcon,
   LayoutDashboard,
   MessageSquare,
@@ -31,7 +32,7 @@ const routes = [
   {
     label: 'Chat Generator',
     icon: MessageSquare,
-    href: '/conversation',
+    href: '/chat',
     color: 'text-violet-500',
   },
   {
@@ -54,7 +55,7 @@ const routes = [
   },
   {
     label: 'Code Generator',
-    icon: MusicIcon,
+    icon: CodeIcon,
     href: '/code',
     color: 'text-blue-700',
   },
