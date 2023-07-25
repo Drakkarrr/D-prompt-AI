@@ -17,8 +17,8 @@
     }
   },
   "lint-staged": {
-    "*.ts": "eslint --fix",
-    "*.css": "stylelint --fix"
+    "*.tsx": "eslint --fix",
+    "*.ts": "stylelint --fix"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.21.15",
@@ -39,6 +39,7 @@
     "init": "^0.1.2",
     "lucide-react": "^0.262.0",
     "next": "13.4.10",
+    "openai": "^3.3.0",
     "postcss": "8.4.26",
     "react": "18.2.0",
     "react-dom": "18.2.0",
