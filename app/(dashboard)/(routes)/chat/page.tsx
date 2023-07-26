@@ -9,6 +9,7 @@ import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import Empty from '@/components/Empty';
+import Loader from '@/components/Loader';
 
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -106,7 +107,11 @@ const ChatPage = () => {
         </div>
 
         <div className='mt-4 space-y-4'>
-          {isLoading && <Empty label='Generating response...' />}
+          {isLoading && (
+            <div className='flex w-full items-center justify-center rounded-lg bg-muted p-8'>
+              <Loader />
+            </div>
+          )}
           {messages.length === 0 && !isLoading && (
             <Empty label='Start a conversation with D-prompt AI' />
           )}

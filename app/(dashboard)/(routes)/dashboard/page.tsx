@@ -53,7 +53,6 @@ const tools = [
 ];
 
 const DashboardPage = () => {
-  // const router = useRouter();
   const router = Router();
 
   return (
