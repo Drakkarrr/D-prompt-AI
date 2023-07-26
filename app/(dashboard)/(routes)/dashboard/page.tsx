@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter as Router } from 'next/navigation';
 
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
@@ -53,7 +53,8 @@ const tools = [
 ];
 
 const DashboardPage = () => {
-  const router = useRouter();
+  // const router = useRouter();
+  const router = Router();
 
   return (
     <>

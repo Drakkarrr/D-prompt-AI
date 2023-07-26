@@ -8,6 +8,7 @@ import Heading from '@/components/Heading';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import Empty from '@/components/Empty';
 
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -105,6 +106,10 @@ const ChatPage = () => {
         </div>
 
         <div className='mt-4 space-y-4'>
+          {isLoading && <Empty label='Generating response...' />}
+          {messages.length === 0 && !isLoading && (
+            <Empty label='Start a conversation with D-prompt AI' />
+          )}
           <div className='flex flex-col-reverse gap-y-4'>
             {messages.map((message: ChatCompletionRequestMessage) => (
               <div
