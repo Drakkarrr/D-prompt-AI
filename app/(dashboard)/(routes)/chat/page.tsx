@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import axios, { AxiosError } from 'axios';
 
 import Heading from '@/components/Heading';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
@@ -16,8 +17,11 @@ import { MessageSquare } from 'lucide-react';
 import { formSchema } from './constants';
 import { cn } from '@/lib/utils';
 
+import { ChatCompletionRequestMessage } from 'openai';
+
 const ChatPage = () => {
   const router = useRouter();
+  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -29,7 +33,31 @@ const ChatPage = () => {
   const isLoading = form.formState.isSubmitting;
 
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    try {
+      const userMessage: ChatCompletionRequestMessage = {
+        role: 'user',
+        content: data.prompt,
+      };
+      const newMessages: ChatCompletionRequestMessage[] = [
+        ...messages,
+        userMessage,
+      ];
+
+      const response = await axios.post('/api/chat', {
+        messages: newMessages,
+      });
+      setMessages((current: ChatCompletionRequestMessage[]) => [
+        ...current,
+        userMessage,
+        response.data,
+      ]);
+      form.reset();
+    } catch (error: AxiosError | any) {
+      console.log(error);
+    } finally {
+      router.refresh();
+      form.reset();
+    }
   };
 
   return (
@@ -57,7 +85,7 @@ const ChatPage = () => {
                       <Input
                         className='border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent'
                         disabled={isLoading}
-                        placeholder='How do I calculate the radius of a circle?'
+                        placeholder='How to center a div using css?'
                         {...field}
                       />
                     </FormControl>
@@ -77,20 +105,8 @@ const ChatPage = () => {
         </div>
 
         <div className='mt-4 space-y-4'>
-          <p>Contents here</p>
-        </div>
-
-        {/* <div className='mt-4 space-y-4'>
-          {isLoading && (
-            <div className='flex items-center justify-center w-full p-8 rounded-lg bg-muted'>
-              <Loader />
-            </div>
-          )}
-          {messages.length === 0 && !isLoading && (
-            <Empty label='No conversation started.' />
-          )}
           <div className='flex flex-col-reverse gap-y-4'>
-            {messages.map((message) => (
+            {messages.map((message: ChatCompletionRequestMessage) => (
               <div
                 key={message.content}
                 className={cn(
@@ -100,12 +116,12 @@ const ChatPage = () => {
                     : 'bg-muted'
                 )}
               >
-                {message.role === 'user' ? <UserAvatar /> : <BotAvatar />}
+                {/* {message.role === 'user' ? <UserAvatar /> : <BotAvatar />} */}
                 <p className='text-sm'>{message.content}</p>
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );

@@ -62,7 +62,7 @@ const DashboardPage = () => {
           Explore the power of AI
         </h2>
         <p className='text-center text-sm text-muted-foreground md:text-lg'>
-          Chat with the mmost advance Ai models
+          Chat with the most advance chat AI model
         </p>
       </div>
       <div className='space-y-4 px-4 md:px-20 lg:px-32'>
