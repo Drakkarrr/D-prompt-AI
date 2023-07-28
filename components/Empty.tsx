@@ -11,8 +11,8 @@ const Empty: React.FC<EmptyProps> = ({ label }) => {
         <Image
           alt='Empty placeholder'
           src='/empty.png'
-          width={1050}
-          height={1050}
+          width={550}
+          height={550}
         />
       </div>
       <p className='text-center text-sm text-muted-foreground'>{label}</p>

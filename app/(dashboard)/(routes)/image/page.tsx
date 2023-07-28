@@ -10,15 +10,22 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import Empty from '@/components/Empty';
 import Loader from '@/components/Loader';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import UserAvatar from '@/components/UserAvatar';
 import BotAvatar from '@/components/BotAvatar';
 
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { ImageIcon } from 'lucide-react';
-import { formSchema } from './constants';
+import { amountOptions, formSchema } from './constants';
 import { cn } from '@/lib/utils';
 
 const ImageGeneratorPage = () => {
@@ -29,6 +36,8 @@ const ImageGeneratorPage = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: '',
+      amount: '1',
+      resolution: '512',
     },
   });
 
@@ -36,7 +45,12 @@ const ImageGeneratorPage = () => {
 
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
-      const response = await axios.post('/api/chat');
+      setImages([]);
+
+      const response = await axios.post('/api/image', data);
+      const urls = response.data.map((image: { url: string }) => image.url);
+
+      setImages(urls);
       form.reset();
     } catch (error: AxiosError | any) {
       console.log(error);
@@ -71,13 +85,41 @@ const ImageGeneratorPage = () => {
                       <Input
                         className='border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent'
                         disabled={isLoading}
-                        placeholder='What is the largest search engine?'
+                        placeholder='A picture of a cat in a basket'
                         {...field}
                       />
                     </FormControl>
                   </FormItem>
                 )}
               />
+              <FormField
+                name='amount'
+                control={form.control}
+                render={({ field }) => (
+                  <FormItem className='col-span-12 lg:col-span-2'>
+                    <Select
+                      disabled={isLoading}
+                      onValueChange={field.onChange}
+                      value={field.value}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue defaultValue={field.value} />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {amountOptions.map((option) => (
+                          <SelectItem key={option.value} value={option.value}>
+                            {option.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </FormItem>
+                )}
+              />
+
               <Button
                 className='col-span-12 w-full lg:col-span-2'
                 type='submit'
@@ -92,14 +134,14 @@ const ImageGeneratorPage = () => {
 
         <div className='mt-4 space-y-4'>
           {isLoading && (
-            <div className='flex w-full items-center justify-center rounded-lg bg-muted p-8'>
+            <div className='p-20'>
               <Loader />
             </div>
           )}
           {images.length === 0 && !isLoading && (
             <Empty label='No images generated' />
           )}
-          <div>images will be here</div>
+          <div>Images will be here</div>
         </div>
       </div>
     </>
