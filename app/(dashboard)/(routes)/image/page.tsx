@@ -17,16 +17,13 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Code } from 'lucide-react';
+import { ImageIcon } from 'lucide-react';
 import { formSchema } from './constants';
 import { cn } from '@/lib/utils';
 
-import { ChatCompletionRequestMessage } from 'openai';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
-
-const CodeGeneratorPage = () => {
+const ImageGeneratorPage = () => {
   const router = useRouter();
-  const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
+  const [images, setImages] = useState<string[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,23 +36,7 @@ const CodeGeneratorPage = () => {
 
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
-      const userMessage: ChatCompletionRequestMessage = {
-        role: 'user',
-        content: data.prompt,
-      };
-      const newMessages: ChatCompletionRequestMessage[] = [
-        ...messages,
-        userMessage,
-      ];
-
-      const response = await axios.post('/api/code', {
-        messages: newMessages,
-      });
-      setMessages((current: ChatCompletionRequestMessage[]) => [
-        ...current,
-        userMessage,
-        response.data,
-      ]);
+      const response = await axios.post('/api/chat');
       form.reset();
     } catch (error: AxiosError | any) {
       console.log(error);
@@ -68,11 +49,11 @@ const CodeGeneratorPage = () => {
   return (
     <>
       <Heading
-        title='Code Generation'
-        description='Generate code using AI'
-        icon={Code}
-        color='text-blue-700'
-        bgColor='bg-blue-500/10'
+        title='D-prompt Image Generator'
+        description='Turn your prompt into an image using D-prompt AI.'
+        icon={ImageIcon}
+        color='text-orange-500'
+        bgColor='bg-orange-500/10'
       />
 
       <div className='px-4 lg:px-8'>
@@ -90,7 +71,7 @@ const CodeGeneratorPage = () => {
                       <Input
                         className='border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent'
                         disabled={isLoading}
-                        placeholder='How to center a div using css?'
+                        placeholder='What is the largest search engine?'
                         {...field}
                       />
                     </FormControl>
@@ -115,43 +96,14 @@ const CodeGeneratorPage = () => {
               <Loader />
             </div>
           )}
-          {messages.length === 0 && !isLoading && (
-            <Empty label='Start a conversation with D-prompt AI' />
+          {images.length === 0 && !isLoading && (
+            <Empty label='No images generated' />
           )}
-          <div className='flex flex-col-reverse gap-y-4'>
-            {messages.map((message: ChatCompletionRequestMessage) => (
-              <div
-                key={message.content}
-                className={cn(
-                  'flex w-full items-start gap-x-8 rounded-lg p-8',
-                  message.role === 'user'
-                    ? 'border border-black/10 bg-white'
-                    : 'bg-muted'
-                )}
-              >
-                {message.role === 'user' ? <UserAvatar /> : <BotAvatar />}
-                <ReactMarkdown
-                  components={{
-                    pre: ({ node, ...props }) => (
-                      <div className='my-2 w-full overflow-auto rounded-lg bg-black/10 p-2'>
-                        <pre {...props} />
-                      </div>
-                    ),
-                    code: ({ node, ...props }) => (
-                      <code className='rounded-lg bg-black/10 p-1' {...props} />
-                    ),
-                  }}
-                  className='overflow-hidden text-sm leading-7'
-                >
-                  {message.content || ''}
-                </ReactMarkdown>
-              </div>
-            ))}
-          </div>
+          <div>images will be here</div>
         </div>
       </div>
     </>
   );
 };
 
-export default CodeGeneratorPage;
+export default ImageGeneratorPage;

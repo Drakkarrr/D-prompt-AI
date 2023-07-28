@@ -23,7 +23,7 @@ import { cn } from '@/lib/utils';
 
 import { ChatCompletionRequestMessage } from 'openai';
 
-const ChatPage = () => {
+const ChatGeneratorPage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
 
@@ -47,7 +47,7 @@ const ChatPage = () => {
         userMessage,
       ];
 
-      const response = await axios.post('/api/code', {
+      const response = await axios.post('/api/chat', {
         messages: newMessages,
       });
       setMessages((current: ChatCompletionRequestMessage[]) => [
@@ -139,4 +139,4 @@ const ChatPage = () => {
   );
 };
 
-export default ChatPage;
+export default ChatGeneratorPage;
