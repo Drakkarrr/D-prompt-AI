@@ -2,7 +2,9 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Chat with D-prompt AI implemnted! next is D-prompt code generation....
+# Chat with D-prompt AI is now available!
+
+# D-prompt AI code generation is now available!
 
 ## Getting Started
 

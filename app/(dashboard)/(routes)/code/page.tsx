@@ -17,13 +17,14 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { MessageSquare } from 'lucide-react';
+import { Code } from 'lucide-react';
 import { formSchema } from './constants';
 import { cn } from '@/lib/utils';
 
 import { ChatCompletionRequestMessage } from 'openai';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
-const ChatPage = () => {
+const CodePage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
 
@@ -47,7 +48,7 @@ const ChatPage = () => {
         userMessage,
       ];
 
-      const response = await axios.post('/api/code', {
+      const response = await axios.post('/api/chat', {
         messages: newMessages,
       });
       setMessages((current: ChatCompletionRequestMessage[]) => [
@@ -67,11 +68,11 @@ const ChatPage = () => {
   return (
     <>
       <Heading
-        title='Chat with D-prompt AI'
-        description='Chat with the most advance chat AI model'
-        icon={MessageSquare}
-        color='text-violet-500'
-        bgColor='bg-violet-500/10'
+        title='Code Generation'
+        description='Generate code using AI'
+        icon={Code}
+        color='text-blue-700'
+        bgColor='bg-blue-500/10'
       />
 
       <div className='px-4 lg:px-8'>
@@ -89,7 +90,7 @@ const ChatPage = () => {
                       <Input
                         className='border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent'
                         disabled={isLoading}
-                        placeholder='What is the largest search engine?'
+                        placeholder='How to center a div using css?'
                         {...field}
                       />
                     </FormControl>
@@ -129,7 +130,21 @@ const ChatPage = () => {
                 )}
               >
                 {message.role === 'user' ? <UserAvatar /> : <BotAvatar />}
-                <p className='text-sm'>{message.content}</p>
+                <ReactMarkdown
+                  components={{
+                    pre: ({ node, ...props }) => (
+                      <div className='my-2 w-full overflow-auto rounded-lg bg-black/10 p-2'>
+                        <pre {...props} />
+                      </div>
+                    ),
+                    code: ({ node, ...props }) => (
+                      <code className='rounded-lg bg-black/10 p-1' {...props} />
+                    ),
+                  }}
+                  className='overflow-hidden text-sm leading-7'
+                >
+                  {message.content || ''}
+                </ReactMarkdown>
               </div>
             ))}
           </div>
@@ -139,4 +154,4 @@ const ChatPage = () => {
   );
 };
 
-export default ChatPage;
+export default CodePage;

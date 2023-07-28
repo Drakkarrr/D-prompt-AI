@@ -1,5 +1,5 @@
 name: GitHub Actions Deployment
-run-name: ${{ github.actor }} is pushing using GitHub Actions 🚀
+run-name: ${{ github.actor }} Added another feature, Code completion 🚀
 
 on:
   push:
