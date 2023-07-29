@@ -20,13 +20,14 @@ import {
 import UserAvatar from '@/components/UserAvatar';
 import BotAvatar from '@/components/BotAvatar';
 
-import { set, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { ImageIcon } from 'lucide-react';
+import { Download, ImageIcon } from 'lucide-react';
 import { amountOptions, formSchema, resolutionOptions } from './constants';
-import { cn } from '@/lib/utils';
+import { Card, CardFooter } from '@/components/ui/card';
+import Image from 'next/image';
 
 const ImageGeneratorPage = () => {
   const router = useRouter();
@@ -37,7 +38,7 @@ const ImageGeneratorPage = () => {
     defaultValues: {
       prompt: '',
       amount: '1',
-      resolution: '512',
+      resolution: '512x512',
     },
   });
 
@@ -75,13 +76,13 @@ const ImageGeneratorPage = () => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(handleSubmit)}
-              className='grid w-full grid-cols-12 gap-2 rounded-lg border p-4 px-3 focus-within:shadow-sm md:px-6'
+              className='grid w-full grid-cols-12 gap-2 p-4 px-3 border rounded-lg focus-within:shadow-sm md:px-6'
             >
               <FormField
                 name='prompt'
                 render={({ field }) => (
                   <FormItem className='col-span-12 lg:col-span-6'>
-                    <FormControl className='m-0 p-0'>
+                    <FormControl className='p-0 m-0'>
                       <Input
                         className='border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent'
                         disabled={isLoading}
@@ -120,8 +121,8 @@ const ImageGeneratorPage = () => {
                 )}
               />
               <FormField
-                control={form.control}
                 name='resolution'
+                control={form.control}
                 render={({ field }) => (
                   <FormItem className='col-span-12 lg:col-span-2'>
                     <Select
@@ -148,7 +149,7 @@ const ImageGeneratorPage = () => {
               />
 
               <Button
-                className='col-span-12 w-full lg:col-span-2'
+                className='w-full col-span-12 lg:col-span-2'
                 type='submit'
                 disabled={isLoading}
                 size='icon'
@@ -168,7 +169,25 @@ const ImageGeneratorPage = () => {
           {images.length === 0 && !isLoading && (
             <Empty label='No images generated' />
           )}
-          <div>Images will be here</div>
+          <div className='grid grid-cols-1 gap-4 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+            {images.map((src) => (
+              <Card key={src} className='overflow-hidden rounded-lg'>
+                <div className='relative aspect-square'>
+                  <Image fill alt='Generated photos by AI' src={src} />
+                </div>
+                <CardFooter className='p-2'>
+                  <Button
+                    onClick={() => window.open(src)}
+                    variant='secondary'
+                    className='w-full'
+                  >
+                    <Download className='w-4 h-4 mr-2' />
+                    Download
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </>

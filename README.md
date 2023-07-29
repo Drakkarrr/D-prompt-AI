@@ -6,6 +6,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 # D-prompt AI code generation is now available!
 
+# D-prompt Image Generator is now available!
+
 ## Getting Started
 
 First, run the development server:
