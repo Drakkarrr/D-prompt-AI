@@ -1,5 +1,5 @@
 name: GitHub Actions Deployment
-run-name: ${{ github.actor }} Added another feature, Code completion 🚀
+run-name: ${{ github.actor }} Added another feature and test passed! 🚀
 
 on:
   push:

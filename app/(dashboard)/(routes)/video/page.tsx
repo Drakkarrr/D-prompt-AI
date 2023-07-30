@@ -99,12 +99,12 @@ const VideoGeneratorPage = () => {
         )}
         {!video && !isLoading && <Empty label='No video generated.' />}
         {video && (
-          <audio
+          <video
             controls
             className='mt-8 aspect-video w-full rounded-lg border bg-black'
           >
             <source src={video} />
-          </audio>
+          </video>
         )}
       </div>
     </div>

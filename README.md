@@ -2,11 +2,9 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-# Chat with D-prompt AI is now available!
+# Chat with D-prompt AI code generation, chat generation, music generation, video generation and image generation is now available!
 
-# D-prompt AI code generation is now available!
-
-# D-prompt Image Generator is now available!
+To be implemented: Limit user's usage to API
 
 ## Getting Started
 
