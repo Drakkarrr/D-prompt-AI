@@ -65,7 +65,7 @@ const MusicGeneratorPage = () => {
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className='grid w-full grid-cols-12 gap-2 rounded-lg border p-4 px-3  focus-within:shadow-sm md:px-6'
+            className='grid w-full grid-cols-12 gap-2 rounded-lg border p-4 px-3 focus-within:shadow-sm md:px-6'
           >
             <FormField
               name='prompt'
@@ -75,7 +75,7 @@ const MusicGeneratorPage = () => {
                     <Input
                       className='border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent'
                       disabled={isLoading}
-                      placeholder='Piano solo'
+                      placeholder='Piano melody beat.'
                       {...field}
                     />
                   </FormControl>

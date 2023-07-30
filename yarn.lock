@@ -3971,6 +3971,11 @@ remark-rehype@^10.0.0:
     mdast-util-to-hast "^12.1.0"
     unified "^10.0.0"
 
+replicate@^0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/replicate/-/replicate-0.14.0.tgz#e360f8cc11d81cdbac2fabe656536cf10586aa1b"
+  integrity sha512-joKcKHnQpgyZTg81ugUoJHXlaqsFkVJGUL2dZ8dbbkj0Zu0q/Yi0Nn7IiFxPtuR7KXdbfas8fWAlmukxtlAsiA==
+
 resolve-from@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npmjs.org/resolve-from/-/resolve-from-4.0.0.tgz"
