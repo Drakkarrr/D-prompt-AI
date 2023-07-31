@@ -79,13 +79,13 @@ const ChatGeneratorPage = () => {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(handleSubmit)}
-              className='grid w-full grid-cols-12 gap-2 p-4 px-3 border rounded-lg focus-within:shadow-sm md:px-6'
+              className='grid w-full grid-cols-12 gap-2 rounded-lg border p-4 px-3 focus-within:shadow-sm md:px-6'
             >
               <FormField
                 name='prompt'
                 render={({ field }) => (
                   <FormItem className='col-span-12 lg:col-span-10'>
-                    <FormControl className='p-0 m-0'>
+                    <FormControl className='m-0 p-0'>
                       <Input
                         className='border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent'
                         disabled={isLoading}
@@ -97,7 +97,7 @@ const ChatGeneratorPage = () => {
                 )}
               />
               <Button
-                className='w-full col-span-12 lg:col-span-2'
+                className='col-span-12 w-full lg:col-span-2'
                 type='submit'
                 disabled={isLoading}
                 size='icon'
@@ -110,7 +110,7 @@ const ChatGeneratorPage = () => {
 
         <div className='mt-4 space-y-4'>
           {isLoading && (
-            <div className='flex items-center justify-center w-full p-8 rounded-lg bg-muted'>
+            <div className='flex w-full items-center justify-center rounded-lg bg-muted p-8'>
               <Loader />
             </div>
           )}

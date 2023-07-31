@@ -1,6 +1,7 @@
 import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
 import { Configuration, OpenAIApi } from 'openai'
+import { checkApiLimit, incrementApiLimit } from '@/lib/api-limit';
 
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -23,11 +24,16 @@ export const POST = async (req: Request) => {
         if (!amount) return new NextResponse('No amount found', { status: 400 });
         if (!resolution) return new NextResponse('No resolution found', { status: 400 });
 
+        const freeTier = await checkApiLimit();
+        if (!freeTier) return new NextResponse('Free tier limit reached', { status: 403 });
+
         const response = await openai.createImage({
             prompt,
             n: parseInt(amount, 10),
             size: resolution,
         })
+
+        await incrementApiLimit();
 
         return NextResponse.json(response.data.data);
 
