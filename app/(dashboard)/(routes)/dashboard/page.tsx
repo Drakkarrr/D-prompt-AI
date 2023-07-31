@@ -58,19 +58,19 @@ const DashboardPage = () => {
   return (
     <>
       <div className='mb-8 space-y-4'>
-        <h2 className='text-center text-2xl font-bold md:text-4xl'>
+        <h2 className='text-2xl font-bold text-center md:text-4xl'>
           Explore the power of AI
         </h2>
-        <p className='text-center text-sm text-muted-foreground md:text-lg'>
+        <p className='text-sm text-center text-muted-foreground md:text-lg'>
           Chat with the most advance chat AI model
         </p>
       </div>
-      <div className='space-y-4 px-4 md:px-20 lg:px-32'>
+      <div className='px-4 space-y-4 md:px-20 lg:px-32'>
         {tools.map((tool) => (
           <Card
             onClick={() => router.push(tool.href)}
             key={tool.href}
-            className='flex cursor-pointer items-center justify-between border-black/5 p-4 transition hover:shadow-md'
+            className='flex items-center justify-between p-4 transition cursor-pointer border-black/5 hover:shadow-md'
           >
             <div className='flex items-center gap-x-4'>
               <div className={cn('w-fit rounded p-2', tool.bgColor)}>
@@ -78,7 +78,7 @@ const DashboardPage = () => {
               </div>
               <div className='font-semibold'>{tool.label}</div>
             </div>
-            <ArrowRight className='h-5 w-5 text-black/50' />
+            <ArrowRight className='w-5 h-5 text-black/50' />
           </Card>
         ))}
       </div>
