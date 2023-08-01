@@ -65,5 +65,9 @@
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "prisma": "^5.0.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/Drakkarrr/D-prompt-AI.git",
+  "author": "Drakkarrr <junrey404@gmail.com>",
+  "license": "MIT"
 }
