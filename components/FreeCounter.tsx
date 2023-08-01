@@ -5,7 +5,7 @@ import { MAX_FREE_COUNTS } from '@/constants';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-// import { useProModal } from "@/hooks/use-pro-modal";
+import { useProModal } from '@/hooks/useProModal';
 
 const FreeCounter = ({
   isPro = false,
@@ -15,7 +15,7 @@ const FreeCounter = ({
   apiLimit: number;
 }) => {
   const [mounted, setMounted] = useState(false);
-  //   const proModal = useProModal();
+  const proModal = useProModal();
 
   useEffect(() => {
     setMounted(true);
@@ -43,8 +43,8 @@ const FreeCounter = ({
             />
           </div>
           <Button
-            // onClick={proModal.onOpen}
-            // variant='premium'
+            onClick={proModal.onOpen}
+            variant='premium'
             className='w-full'
           >
             Upgrade

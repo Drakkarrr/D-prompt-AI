@@ -4,38 +4,39 @@ export const MAX_FREE_COUNTS = 30;
 
 export const tools = [
     {
-        label: 'Conversation',
+        label: 'Chat',
         icon: MessageSquare,
-        href: '/conversation',
+        href: '/chat',
         color: "text-violet-500",
         bgColor: "bg-violet-500/10",
+
     },
     {
-        label: 'Music Generation',
-        icon: Music,
-        href: '/music',
-        color: "text-emerald-500",
-        bgColor: "bg-emerald-500/10",
-    },
-    {
-        label: 'Image Generation',
+        label: 'Image Generator',
         icon: ImageIcon,
-        color: "text-pink-700",
-        bgColor: "bg-pink-700/10",
+        color: "text-orange-700",
+        bgColor: "bg-orange-700/10",
         href: '/image',
     },
     {
-        label: 'Video Generation',
+        label: 'Video Generator',
         icon: VideoIcon,
-        color: "text-orange-700",
-        bgColor: "bg-orange-700/10",
+        color: "text-prink-700",
+        bgColor: "bg-pink-700/10",
         href: '/video',
     },
     {
-        label: 'Code Generation',
+        label: 'Music Generator',
+        icon: Music,
+        color: "text-emerald-500",
+        bgColor: "bg-emerald-500/10",
+        href: '/music',
+    },
+    {
+        label: 'Code Generator',
         icon: Code,
-        color: "text-green-700",
-        bgColor: "bg-green-700/10",
+        color: "text-blue-700",
+        bgColor: "bg-blue-700/10",
         href: '/code',
     },
 ];
