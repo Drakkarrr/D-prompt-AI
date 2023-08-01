@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter as Router } from 'next/navigation';
 import axios, { AxiosError } from 'axios';
 
 import Heading from '@/components/Heading';
@@ -25,7 +25,7 @@ import { ChatCompletionRequestMessage } from 'openai';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 const CodeGeneratorPage = () => {
-  const router = useRouter();
+  const router = Router();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({

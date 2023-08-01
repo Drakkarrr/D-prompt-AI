@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter as Router } from 'next/navigation';
 import axios, { AxiosError } from 'axios';
 
 import Heading from '@/components/Heading';
@@ -30,7 +30,7 @@ import { Card, CardFooter } from '@/components/ui/card';
 import Image from 'next/image';
 
 const ImageGeneratorPage = () => {
-  const router = useRouter();
+  const router = Router();
   const [images, setImages] = useState<string[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({

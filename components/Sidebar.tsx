@@ -77,8 +77,8 @@ const Sidebar: React.FC<SidebarProps> = ({ apiLimit = 0 }) => {
   return (
     <div className='flex h-full flex-col space-y-4 bg-[#111827] py-4 text-white'>
       <div className='flex-1 px-3 py-2'>
-        <Link href='/dashboard' className='flex items-center pl-3 mb-14'>
-          <div className='relative w-10 h-10 mr-4'>
+        <Link href='/dashboard' className='mb-14 flex items-center pl-3'>
+          <div className='relative mr-4 h-10 w-10'>
             <Image fill sizes='80px' alt='Logo' src='/complogo.png' />
           </div>
           <h1 className={cn('text-2xl font-bold', montserrat.className)}>
@@ -95,7 +95,7 @@ const Sidebar: React.FC<SidebarProps> = ({ apiLimit = 0 }) => {
                 pathname === route.href && 'bg-white/10 text-white'
               )}
             >
-              <div className='flex items-center flex-1'>
+              <div className='flex flex-1 items-center'>
                 <route.icon className={cn('mr-3 h-5 w-5', route.color)} />
                 {route.label}
               </div>
