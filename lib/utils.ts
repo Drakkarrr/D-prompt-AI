@@ -10,6 +10,6 @@ export function absoluteUrl(path: string) {
 }
 
 // export const absoluteUrl = (path: string) => {
-//   const url = new URL(path, process.env.NEXT_PUBLIC_HOST ?? "https://geniusly.ai")
+//   const url = new URL(path, process.env.NEXT_PUBLIC_HOST ?? "https://dpropmt.ai")
 //   return url.toString()
 // }

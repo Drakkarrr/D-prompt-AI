@@ -6,14 +6,12 @@ import { absoluteUrl } from "@/lib/utils";
 
 
 const settingsUrl = absoluteUrl("/settings");
-export async function GET() {
+export const GET = async () => {
     try {
         const { userId } = auth();
         const user = await currentUser();
 
-        if (!userId || !user) {
-            return new NextResponse("Unauthorized", { status: 401 });
-        }
+        if (!userId || !user) return new NextResponse("Unauthorized", { status: 401 });
 
         const userSubscription = await prismadb.userSubscription.findUnique({
             where: {
@@ -42,7 +40,7 @@ export async function GET() {
                     price_data: {
                         currency: "USD",
                         product_data: {
-                            name: "Genius Pro",
+                            name: "D-Prompt Pro",
                             description: "Unlimited AI Generations"
                         },
                         unit_amount: 2000,
