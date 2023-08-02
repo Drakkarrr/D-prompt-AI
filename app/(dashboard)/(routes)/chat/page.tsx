@@ -22,9 +22,11 @@ import { formSchema } from './constants';
 import { cn } from '@/lib/utils';
 
 import { ChatCompletionRequestMessage } from 'openai';
+import { useProModal } from '@/hooks/useProModal';
 
 const ChatGeneratorPage = () => {
   const router = Router();
+  const proModal = useProModal();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -58,6 +60,7 @@ const ChatGeneratorPage = () => {
       form.reset();
     } catch (error: AxiosError | any) {
       console.log(error);
+      if (error?.response?.status === 403) proModal.onOpen();
     } finally {
       router.refresh();
       form.reset();

@@ -16,6 +16,7 @@ import BotAvatar from '@/components/BotAvatar';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useProModal } from '@/hooks/useProModal';
 
 import { Code } from 'lucide-react';
 import { formSchema } from './constants';
@@ -26,6 +27,7 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 const CodeGeneratorPage = () => {
   const router = Router();
+  const proModal = useProModal();
   const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -59,6 +61,7 @@ const CodeGeneratorPage = () => {
       form.reset();
     } catch (error: AxiosError | any) {
       console.log(error);
+      if (error?.response?.status === 403) proModal.onOpen();
     } finally {
       router.refresh();
       form.reset();

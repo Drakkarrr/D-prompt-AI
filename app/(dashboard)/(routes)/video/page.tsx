@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter as Router } from 'next/navigation';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 import Heading from '@/components/Heading';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
@@ -12,6 +13,7 @@ import Empty from '@/components/Empty';
 import Loader from '@/components/Loader';
 
 import { useForm } from 'react-hook-form';
+import { useProModal } from '@/hooks/useProModal';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -19,7 +21,7 @@ import { Video } from 'lucide-react';
 import { formSchema } from './constants';
 
 const VideoGeneratorPage = () => {
-  // const proModal = useProModal();
+  const proModal = useProModal();
   const router = Router();
   const [video, setVideo] = useState<string>();
 
@@ -43,9 +45,9 @@ const VideoGeneratorPage = () => {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        // proModal.onOpen();
+        proModal.onOpen();
       } else {
-        // toast.error("Something went wrong.");
+        toast.error('Something went wrong.');
       }
     } finally {
       router.refresh();

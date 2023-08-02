@@ -14,12 +14,13 @@ import Loader from '@/components/Loader';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useProModal } from '@/hooks/useProModal';
 
 import { Music } from 'lucide-react';
 import { formSchema } from './constants';
 
 const MusicGeneratorPage = () => {
-  // const proModal = useProModal();
+  const proModal = useProModal();
   const router = Router();
   const [music, setMusic] = useState<string>();
 
@@ -42,11 +43,7 @@ const MusicGeneratorPage = () => {
       setMusic(response.data.audio);
       form.reset();
     } catch (error: any) {
-      if (error?.response?.status === 403) {
-        // proModal.onOpen();
-      } else {
-        // toast.error("Something went wrong.");
-      }
+      if (error?.response?.status === 403) proModal.onOpen();
     } finally {
       router.refresh();
     }

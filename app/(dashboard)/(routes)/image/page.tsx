@@ -17,12 +17,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import UserAvatar from '@/components/UserAvatar';
-import BotAvatar from '@/components/BotAvatar';
 
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useProModal } from '@/hooks/useProModal';
 
 import { Download, ImageIcon } from 'lucide-react';
 import { amountOptions, formSchema, resolutionOptions } from './constants';
@@ -31,6 +30,7 @@ import Image from 'next/image';
 
 const ImageGeneratorPage = () => {
   const router = Router();
+  const proModal = useProModal();
   const [images, setImages] = useState<string[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -55,6 +55,7 @@ const ImageGeneratorPage = () => {
       form.reset();
     } catch (error: AxiosError | any) {
       console.log(error);
+      if (error?.response?.status === 403) proModal.onOpen();
     } finally {
       router.refresh();
       form.reset();
