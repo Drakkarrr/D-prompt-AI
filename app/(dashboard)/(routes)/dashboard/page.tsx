@@ -59,10 +59,10 @@ const DashboardPage = () => {
     <>
       <div className='mb-8 space-y-4'>
         <h2 className='text-center text-2xl font-bold md:text-4xl'>
-          Explore the power of AI
+          Get started with D-propmt AI
         </h2>
         <p className='text-center text-sm text-muted-foreground md:text-lg'>
-          Chat with the most advance chat AI model
+          Generate contents using OpenAI GPT3.5 and Replicate API
         </p>
       </div>
       <div className='space-y-4 px-4 md:px-20 lg:px-32'>

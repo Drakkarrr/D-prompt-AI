@@ -1,5 +1,6 @@
+#!   Point to my GitHub Actions Deployment (Drakkarrrr)
 name: GitHub Actions Deployment
-run-name: ${{ github.actor }} Added another feature and test passed! 🚀
+run-name: ${{ github.actor }} added stripe integration and limit API counter. 🚀
 
 on:
   push:
@@ -21,4 +22,4 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "🍏 This job's status is ${{job.status}}."
