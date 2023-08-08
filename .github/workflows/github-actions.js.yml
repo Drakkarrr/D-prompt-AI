@@ -1,6 +1,6 @@
 #!   Point to my GitHub Actions Deployment (Drakkarrrr)
 name: GitHub Actions Deployment
-run-name: ${{ github.actor }} added stripe integration and limit API counter. 🚀
+run-name: ${{ github.actor }} added actions, build and test CI/CD passed. 🚀
 
 on:
   push:
