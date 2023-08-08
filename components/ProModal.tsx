@@ -71,7 +71,7 @@ const ProModal = () => {
             disabled={loading}
             onClick={onSubscribe}
             size='lg'
-            variant='default'
+            variant='premium'
             className='w-full'
           >
             Upgrade to Pro
