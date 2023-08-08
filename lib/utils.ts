@@ -8,8 +8,3 @@ export function cn(...inputs: ClassValue[]) {
 export function absoluteUrl(path: string) {
   return `${process.env.NEXT_PUBLIC_HOST}${path}`
 }
-
-// export const absoluteUrl = (path: string) => {
-//   const url = new URL(path, process.env.NEXT_PUBLIC_HOST ?? "https://dpropmt.ai")
-//   return url.toString()
-// }

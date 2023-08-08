@@ -14,9 +14,7 @@ export const GET = async () => {
         if (!userId || !user) return new NextResponse("Unauthorized", { status: 401 });
 
         const userSubscription = await prismadb.userSubscription.findUnique({
-            where: {
-                userId
-            }
+            where: { userId }
         })
 
         if (userSubscription && userSubscription.stripeCustomerId) {

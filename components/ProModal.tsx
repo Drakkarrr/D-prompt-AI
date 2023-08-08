@@ -71,10 +71,10 @@ const ProModal = () => {
             disabled={loading}
             onClick={onSubscribe}
             size='lg'
-            variant='premium'
+            variant='default'
             className='w-full'
           >
-            Upgrade
+            Upgrade to Pro
             <Zap className='ml-2 h-4 w-4 fill-white' />
           </Button>
         </DialogFooter>
