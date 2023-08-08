@@ -2,6 +2,7 @@ import Replicate from "replicate";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import { incrementApiLimit, checkApiLimit } from "@/lib/api-limit";
+import { getSubscription } from "@/lib/subscription";
 // import { checkSubscription } from "@/lib/subscription";
 
 const replicate = new Replicate({
@@ -19,16 +20,10 @@ export async function POST(
         if (!userId) return new NextResponse("Unauthorized", { status: 401 });
         if (!prompt) return new NextResponse("Prompt is required", { status: 400 });
 
-
-        // const freeTrial = await checkApiLimit();
-        // const isPro = await checkSubscription();
-
-        // if (!freeTrial && !isPro) {
-        //     return new NextResponse("Free trial has expired. Please upgrade to pro.", { status: 403 });
-        // }
-
         const freeTier = await checkApiLimit();
-        if (!freeTier) return new NextResponse('Free tier limit reached', { status: 403 });
+        const isPro = await getSubscription()
+
+        if (!freeTier && !isPro) return new NextResponse('Free tier limit reached', { status: 403 });
 
         const response = await replicate.run(
             "riffusion/riffusion:8cf61ea6c56afd61d8f5b9ffd14d7c216c0a93844ce2d82ac1c9ecc9c7f24e05",
@@ -39,11 +34,9 @@ export async function POST(
             }
         );
 
-        await incrementApiLimit();
-
-        // if (!isPro) {
-        //     await incrementApiLimit();
-        // }
+        if (!isPro) {
+            await incrementApiLimit();
+        }
 
         return NextResponse.json(response);
     } catch (error) {

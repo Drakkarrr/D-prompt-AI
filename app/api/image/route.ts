@@ -2,6 +2,7 @@ import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
 import { Configuration, OpenAIApi } from 'openai'
 import { checkApiLimit, incrementApiLimit } from '@/lib/api-limit';
+import { getSubscription } from '@/lib/subscription';
 
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -25,7 +26,9 @@ export const POST = async (req: Request) => {
         if (!resolution) return new NextResponse('No resolution found', { status: 400 });
 
         const freeTier = await checkApiLimit();
-        if (!freeTier) return new NextResponse('Free tier limit reached', { status: 403 });
+        const isPro = await getSubscription()
+
+        if (!freeTier && !isPro) return new NextResponse('Free tier limit reached', { status: 403 });
 
         const response = await openai.createImage({
             prompt,
@@ -33,7 +36,9 @@ export const POST = async (req: Request) => {
             size: resolution,
         })
 
-        await incrementApiLimit();
+        if (!isPro) {
+            await incrementApiLimit();
+        }
 
         return NextResponse.json(response.data.data);
 
