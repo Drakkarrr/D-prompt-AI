@@ -27,9 +27,8 @@ export const POST = async (req: Request) => {
             session.subscription as string
         )
 
-        if (!session?.metadata?.userId) {
-            return new NextResponse("User id is required", { status: 400 });
-        }
+        if (!session?.metadata?.userId) return new NextResponse("User id is required", { status: 400 });
+
 
         await prismadb.userSubscription.create({
             data: {
@@ -37,22 +36,16 @@ export const POST = async (req: Request) => {
                 stripeSubscriptionId: subscription.id,
                 stripeCustomerId: subscription.customer as string,
                 stripePriceId: subscription.items.data[0].price.id,
-                stripeCurrentPeriodEnd: new Date(
-                    subscription.current_period_end * 1000
-                ),
+                stripeCurrentPeriodEnd: new Date(subscription.current_period_end * 1000),
             },
         })
     }
 
     if (event.type === "invoice.payment_succeeded") {
-        const subscription = await stripe.subscriptions.retrieve(
-            session.subscription as string
-        )
+        const subscription = await stripe.subscriptions.retrieve(session.subscription as string)
 
         await prismadb.userSubscription.update({
-            where: {
-                stripeSubscriptionId: subscription.id,
-            },
+            where: { stripeSubscriptionId: subscription.id },
             data: {
                 stripePriceId: subscription.items.data[0].price.id,
                 stripeCurrentPeriodEnd: new Date(
