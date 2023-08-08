@@ -7,12 +7,14 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { useProModal } from '@/hooks/useProModal';
 
-const FreeCounter = ({
-  isPro = false,
-  apiLimit = 0,
-}: {
+interface FreeCounterProps {
   isPro: boolean;
   apiLimit: number;
+}
+
+const FreeCounter: React.FC<FreeCounterProps> = ({
+  isPro = false,
+  apiLimit = 0,
 }) => {
   const [mounted, setMounted] = useState(false);
   const proModal = useProModal();

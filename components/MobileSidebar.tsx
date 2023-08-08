@@ -7,9 +7,13 @@ import Sidebar from '@/components/Sidebar';
 
 type MobileSidebarProps = {
   apiLimit: number;
+  isPro: boolean;
 };
 
-const MobileSidebar: React.FC<MobileSidebarProps> = ({ apiLimit }) => {
+const MobileSidebar: React.FC<MobileSidebarProps> = ({
+  apiLimit = 0,
+  isPro = false,
+}) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -24,7 +28,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({ apiLimit }) => {
         <Menu size='23px' className='md:hidden' />
       </SheetTrigger>
       <SheetContent side='left' className='p-0'>
-        <Sidebar apiLimit={apiLimit} />
+        <Sidebar isPro={isPro} apiLimit={apiLimit} />
       </SheetContent>
     </Sheet>
   );
