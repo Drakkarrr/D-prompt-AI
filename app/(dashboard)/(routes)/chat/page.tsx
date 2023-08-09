@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter as Router } from 'next/navigation';
 import axios, { AxiosError } from 'axios';
+import { toast } from 'react-hot-toast';
 
 import Heading from '@/components/Heading';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
@@ -59,8 +60,8 @@ const ChatGeneratorPage = () => {
       ]);
       form.reset();
     } catch (error: AxiosError | any) {
-      console.log(error);
       if (error?.response?.status === 403) proModal.onOpen();
+      else toast.error('Something went wrong!');
     } finally {
       router.refresh();
       form.reset();

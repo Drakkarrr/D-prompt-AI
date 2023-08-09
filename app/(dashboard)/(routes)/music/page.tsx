@@ -18,6 +18,7 @@ import { useProModal } from '@/hooks/useProModal';
 
 import { Music } from 'lucide-react';
 import { formSchema } from './constants';
+import toast from 'react-hot-toast';
 
 const MusicGeneratorPage = () => {
   const proModal = useProModal();
@@ -44,6 +45,7 @@ const MusicGeneratorPage = () => {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) proModal.onOpen();
+      else toast.error('Something went wrong!');
     } finally {
       router.refresh();
     }
