@@ -3,8 +3,10 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import { ClerkProvider } from '@clerk/nextjs';
+
 import ModalProvider from '@/components/ModalProvider';
 import ToastProvider from '@/components/ToastProvider';
+import ChatSupportProvider from '@/components/ChatSupportProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,6 +24,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang='en'>
+        <ChatSupportProvider />
         <body className={inter.className}>
           <ModalProvider />
           {children}
