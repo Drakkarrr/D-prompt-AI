@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "repository": "https://github.com/Drakkarrr/D-prompt-AI.git",
-  "author": "Drakkarrr <junrey404@gmail.com>",
+  "author": "Drakkarrr <drakkar.alpha00@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
@@ -13,7 +13,8 @@
     "lint": "next lint --fix",
     "precommit": "lint-staged",
     "test": "yarn lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "prisma generate"
   },
   "husky": {
     "hooks": {
