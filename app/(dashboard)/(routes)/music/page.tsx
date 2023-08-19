@@ -39,7 +39,7 @@ const MusicGeneratorPage = () => {
       setMusic(undefined);
 
       const response = await axios.post('/api/music', values);
-      console.log(response);
+      // console.log(response);
 
       setMusic(response.data.audio);
       form.reset();
@@ -55,7 +55,7 @@ const MusicGeneratorPage = () => {
     <div>
       <Heading
         title='Music Generation'
-        description='Turn your prompt into music.'
+        description='Let the melodies flow as our AI composes music that resonates with your emotions.'
         icon={Music}
         color='text-emerald-500'
         bgColor='bg-emerald-500/10'

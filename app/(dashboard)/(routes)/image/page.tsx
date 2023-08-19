@@ -67,8 +67,8 @@ const ImageGeneratorPage = () => {
   return (
     <>
       <Heading
-        title='D-prompt Image Generator'
-        description='Turn your prompt into an image using D-prompt AI.'
+        title='Photo Synthesis'
+        description='Create visual masterpieces that are both innovative and awe-inspiring.'
         icon={ImageIcon}
         color='text-orange-500'
         bgColor='bg-orange-500/10'

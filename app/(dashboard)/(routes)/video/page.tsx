@@ -39,7 +39,7 @@ const VideoGeneratorPage = () => {
       setVideo(undefined);
 
       const response = await axios.post('/api/video', values);
-      console.log(response);
+      // console.log(response);
 
       setVideo(response.data[0]);
       form.reset();
@@ -55,7 +55,7 @@ const VideoGeneratorPage = () => {
     <div>
       <Heading
         title='Video Generation'
-        description='Turn your prompt into video.'
+        description='Dive into the realm of video creation like never before using AI.'
         icon={Video}
         color='text-pink-500'
         bgColor='bg-pink-500/10'

@@ -71,8 +71,8 @@ const ChatGeneratorPage = () => {
   return (
     <>
       <Heading
-        title='Chat with D-prompt AI'
-        description='Chat with the most advance chat AI model'
+        title='D-prompt AI chat'
+        description='Engage with our AI-powered chat service reminiscent of ChatGPT.'
         icon={MessageSquare}
         color='text-violet-500'
         bgColor='bg-violet-500/10'

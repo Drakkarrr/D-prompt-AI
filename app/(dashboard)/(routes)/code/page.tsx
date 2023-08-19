@@ -73,7 +73,7 @@ const CodeGeneratorPage = () => {
     <>
       <Heading
         title='Code Generation'
-        description='Generate code using AI'
+        description='Assist on your programming journey with our AI-backed code generation service.'
         icon={Code}
         color='text-blue-700'
         bgColor='bg-blue-500/10'

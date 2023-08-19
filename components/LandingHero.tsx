@@ -12,7 +12,7 @@ const LandingHero = () => {
     <div className='space-y-5 py-36 text-center font-bold text-white'>
       <div className='space-y-5 text-4xl font-extrabold md:text-6xl lg:text-7xl'>
         <h1>D-prompt AI Generative for</h1>
-        <div className='bg-gradient-to-r from-green-400 to-slate-100 bg-clip-text text-transparent'>
+        <div className='text-md bg-gradient-to-r from-[#9076fc] to-[#61cfeb] bg-clip-text text-transparent'>
           <TypewriterComponent
             options={{
               loop: true,
@@ -28,8 +28,11 @@ const LandingHero = () => {
           />
         </div>
       </div>
-      <div className='text-sm font-light text-zinc-400 md:text-xl'>
-        Generate contents using AI 10x faster <br /> No credit card required!
+      <div className='px-8 text-sm font-light text-zinc-400 sm:text-center md:text-xl lg:px-28'>
+        A Generative AI app that embarks on creative discovery and immerse
+        yourself in dynamic conversations, captivating visuals, harmonious
+        melodies, assistive code generation and more.
+        <br /> <br /> No credit card required!
       </div>
       <div>
         <Link href={isSignedIn ? '/dashboard' : '/sign-up'}>
@@ -42,7 +45,7 @@ const LandingHero = () => {
         </Link>
       </div>
       <div className='text-xm font-normal text-zinc-400 md:text-sm'>
-        Developed by{' '}
+        Developed by
         <Link
           href='https://github.com/Drakkarrr'
           className='tracking-wider text-slate-200 underline'
