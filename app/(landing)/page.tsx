@@ -1,13 +1,13 @@
 import LandingNavbar from '@/components/LandingNavbar';
 import LandingHero from '@/components/LandingHero';
-import LandingPageContents from '@/components/LandingPageContents';
+// import LandingPageContents from '@/components/LandingPageContents';
 
 const LandingPage = () => {
   return (
     <div className='h-full'>
       <LandingNavbar />
       <LandingHero />
-      <LandingPageContents />
+      {/* <LandingPageContents /> */}
     </div>
   );
 };

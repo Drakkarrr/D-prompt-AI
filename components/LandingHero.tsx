@@ -10,8 +10,8 @@ const LandingHero = () => {
 
   return (
     <div className='space-y-5 py-36 text-center font-bold text-white'>
-      <div className='space-y-5 text-4xl font-extrabold sm:text-5xl md:text-6xl lg:text-7xl'>
-        <h1>D-prompt AI is best for</h1>
+      <div className='space-y-5 text-4xl font-extrabold md:text-6xl lg:text-7xl'>
+        <h1>D-prompt AI Generative for</h1>
         <div className='bg-gradient-to-r from-green-400 to-slate-100 bg-clip-text text-transparent'>
           <TypewriterComponent
             options={{
@@ -29,7 +29,7 @@ const LandingHero = () => {
         </div>
       </div>
       <div className='text-sm font-light text-zinc-400 md:text-xl'>
-        Generate contents using AI 10x faster
+        Generate contents using AI 10x faster <br /> No credit card required!
       </div>
       <div>
         <Link href={isSignedIn ? '/dashboard' : '/sign-up'}>
@@ -42,7 +42,13 @@ const LandingHero = () => {
         </Link>
       </div>
       <div className='text-xm font-normal text-zinc-400 md:text-sm'>
-        No credit card required
+        Developed by{' '}
+        <Link
+          href='https://github.com/Drakkarrr'
+          className='tracking-wider text-slate-200 underline'
+        >
+          Drakkar
+        </Link>
       </div>
     </div>
   );
