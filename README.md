@@ -2,15 +2,15 @@
 
 An Open source AI Generative web-based app, an unprecedented platform that harnesses the boundless potential of artificial intelligence to ignite your creative spark! From dynamic dialogues to spellbinding videos, captivating imagery, harmonious melodies, sophisticated code generation, and a host of other features, our app offers an expansive array of AI services tailored to amplify your creativity.
 
-## Screenshots
+# Screenshots
 
 ![App Screenshot](https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRWWl0PO7qFWCsi9Wvf57JmYbfLEWqWWx1mBqinse1nEvEnyomeU-Uuq_3snC1fh_nr50svczyRaZbOvBk)
 
-## Demo
+# Demo
 
 https://drakkar-prompt-ai.vercel.app/
 
-## Key Features
+# Key Features
 
 ### ChatGPT Service
 
@@ -44,7 +44,7 @@ Elevate your journey with our Pro plan, offering not only enhanced and unlimited
 
 With integrated real-time chat support, our team of experts is readily available to provide personalized assistance, answer your questions, and guide you through your creative journey.
 
-## Configuration
+# Configuration
 
 To run [Your Project Name], you'll need to set up the following environment variables:
 
@@ -98,7 +98,7 @@ If you're using Crisp for chat support:
 
 Remember to keep your environment variables secure and avoid sharing them publicly.
 
-## Installation
+# Installation
 
 Install D-promt-AII with yarn
 
@@ -157,6 +157,6 @@ Prettier (Code formatting)
 husky (Git hooks)
 lint-staged (Run tasks on staged files)
 
-## Authors
+# Tech Stacks
 
-- [@Drakkarrr](https://www.github.com/drakkarrr)
+- [Docker](https://www.github.com/drakkarrr)
