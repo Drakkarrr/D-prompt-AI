@@ -45,7 +45,7 @@ const LandingHero = () => {
         </Link>
       </div>
       <div className='text-xm font-normal text-zinc-400 md:text-sm'>
-        Developed by
+        Developed by &nbsp;
         <Link
           href='https://github.com/Drakkarrr'
           className='tracking-wider text-slate-200 underline'
