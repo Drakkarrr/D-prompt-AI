@@ -113,8 +113,8 @@ run: yarn run dev (to start the project)
 
 ### DEVOPS
 
-Docker (Containerization)
-Github Actions (CI/CD)
+- Docker (Containerization)
+- Github Actions (CI/CD)
 
 ### Client
 
@@ -156,7 +156,3 @@ ESLint (Code linting)
 Prettier (Code formatting)
 husky (Git hooks)
 lint-staged (Run tasks on staged files)
-
-# Tech Stacks
-
-- [Docker](https://www.github.com/drakkarrr)
