@@ -118,41 +118,41 @@ run: yarn run dev (to start the project)
 
 ### Client
 
-ReactJS/NextJS
-TailwindCSS
-Radix-ui
-shadcn-ui
+- ReactJS/NextJS
+- TailwindCSS
+- Radix-ui
+- shadcn-ui
 
 ### Server
 
-Node
-Express
-Database
-Prisma
+- Node
+- Express
+- Database
+- Prisma
 
 ### API and Data Handling
 
-Clerk (for authentication)
-Axios (HTTP requests)
-OpenAI (AI capabilities)
-Stripe (payments)
-Replicate AI (AI capabilities)
-Prisma (Database ORM)
-Styling and Post-Processing
-Autoprefixer
-PostCSS
-tailwind-merge
+- Clerk (for authentication)
+- Axios (HTTP requests)
+- OpenAI (AI capabilities)
+- Stripe (payments)
+- Replicate AI (AI capabilities)
+- Prisma (Database ORM)
+- Styling and Post-Processing
+- Autoprefixer
+- PostCSS
+- tailwind-merge
 
 ### Miscellaneous UI and Effects
 
-clsx (Utility for dynamic classNames)
-crisp-sdk-web (Crisp chat support)
-react-hot-toast (Toast notifications)
-react-markdown (Markdown rendering)
-typewriter-effect (Typewriter-style text effect)
-Development Tools and Build
-TypeScript
-ESLint (Code linting)
-Prettier (Code formatting)
-husky (Git hooks)
-lint-staged (Run tasks on staged files)
+- clsx (Utility for dynamic classNames)
+- crisp-sdk-web (Crisp chat support)
+- react-hot-toast (Toast notifications)
+- react-markdown (Markdown rendering)
+- typewriter-effect (Typewriter-style text effect)
+- Development Tools and Build
+- TypeScript
+- ESLint (Code linting)
+- Prettier (Code formatting)
+- husky (Git hooks)
+- lint-staged (Run tasks on staged files)
