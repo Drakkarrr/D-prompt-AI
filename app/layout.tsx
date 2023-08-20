@@ -12,8 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'D-prompt AI',
-  description:
-    'D-prompt-AI is a web based fullstack AI generation saas app platform that using artificial intelligence models to generate contents using prompt powered by modern powerful technologies.',
+  description: 'An open source 5-in-1 web based generative AI app.',
 };
 
 export default function RootLayout({

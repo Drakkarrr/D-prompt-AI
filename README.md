@@ -46,7 +46,7 @@ With integrated real-time chat support, our team of experts is readily available
 
 # Configuration
 
-To run [Your Project Name], you'll need to set up the following environment variables:
+To run D-propmt AI, you'll need to set up the following environment variables:
 
 ### Clerk Configuration
 
