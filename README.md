@@ -4,9 +4,13 @@ An Open source AI Generative web-based app, an unprecedented platform that harne
 
 # Screenshots
 
-![App Screenshot](https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRWWl0PO7qFWCsi9Wvf57JmYbfLEWqWWx1mBqinse1nEvEnyomeU-Uuq_3snC1fh_nr50svczyRaZbOvBk)
+![App Screenshot](public/ui-screenshot/landing-ui.png)
 
-![App Screenshot](public/complogo.png)
+![App Screenshot](public/ui-screenshot/login.png)
+
+![App Screenshot](public/ui-screenshot/dashboard.png)
+
+![App Screenshot](public/ui-screenshot/pro.png)
 
 # Demo
 
