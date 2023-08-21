@@ -6,7 +6,7 @@ An Open source AI Generative web-based app, an unprecedented platform that harne
 
 ![App Screenshot](https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRWWl0PO7qFWCsi9Wvf57JmYbfLEWqWWx1mBqinse1nEvEnyomeU-Uuq_3snC1fh_nr50svczyRaZbOvBk)
 
-![App Screenshot](https://ibb.co/GRWmK7D)
+![App Screenshot](public/complogo.png)
 
 # Demo
 
