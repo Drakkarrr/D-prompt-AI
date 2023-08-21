@@ -4,11 +4,11 @@ An Open source AI Generative web-based app, an unprecedented platform that harne
 
 # Screenshots
 
-![Landing Page](public/landing-ui.png)
-![Landing Page](public/complogo.png)
-![Login Page](public/login.png)
-![Dashboard Page](public/dashboard.png)
-![Pro Plan Upgrade](public/pro.png)
+![Landing Page](public/ui-screenshot/landing-ui.png)
+![Landing Page](public/ui-screenshot/complogo.png)
+![Login Page](public/ui-screenshot/login.png)
+![Dashboard Page](public/ui-screenshot/dashboard.png)
+![Pro Plan Upgrade](public/ui-screenshot/pro.png)
 
 # Demo
 
