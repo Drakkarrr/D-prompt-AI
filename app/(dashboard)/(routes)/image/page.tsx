@@ -67,7 +67,7 @@ const ImageGeneratorPage = () => {
   return (
     <>
       <Heading
-        title='Photo Synthesis'
+        title='Photo Generation'
         description='Create visual masterpieces that are both innovative and awe-inspiring.'
         icon={ImageIcon}
         color='text-orange-500'
