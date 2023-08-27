@@ -27,10 +27,6 @@ Embark on a journey of video creation like never before. Our AI-driven video gen
 
 Unleash your inner artist with AI-generated images that defy conventional imagination. Craft visually stunning masterpieces that challenge the limits of artistic expression.
 
-### Photo Synthesis
-
-Elevate ordinary photos into extraordinary works of art. Our AI-infused photo generation service adds an enchanting touch to your images, transforming each one into a story waiting to be unveiled.
-
 ### Music Composition
 
 Let melodies flow seamlessly as our AI composes music resonating with your deepest emotions. From serene tunes to dynamic compositions, our music generation service paves the way for endless auditory exploration.
