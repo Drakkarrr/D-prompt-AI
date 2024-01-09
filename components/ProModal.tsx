@@ -41,15 +41,15 @@ const ProModal = () => {
     <Dialog open={proModal.isOpen} onOpenChange={proModal.onClose}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className='flex flex-col items-center justify-center pb-2 gap-y-4'>
-            <div className='flex items-center text-xl font-bold gap-x-2'>
+          <DialogTitle className='flex flex-col items-center justify-center gap-y-4 pb-2'>
+            <div className='flex items-center gap-x-2 text-xl font-bold'>
               Upgrade to D-prompt
               <Badge variant='default' className='py-1 text-sm uppercase'>
                 pro
               </Badge>
             </div>
           </DialogTitle>
-          <DialogDescription className='pt-2 space-y-2 font-medium text-center'>
+          <DialogDescription className='space-y-2 pt-2 text-center font-medium'>
             {tools.map((tool) => (
               <Card
                 key={tool.href}
@@ -61,7 +61,7 @@ const ProModal = () => {
                   </div>
                   <div className='text-sm font-semibold'>{tool.label}</div>
                 </div>
-                <Check className='w-5 h-5 text-primary' />
+                <Check className='h-5 w-5 text-primary' />
               </Card>
             ))}
           </DialogDescription>
@@ -75,7 +75,7 @@ const ProModal = () => {
             className='w-full'
           >
             Upgrade to Pro
-            <Zap className='w-4 h-4 ml-2 fill-white' />
+            <Zap className='ml-2 h-4 w-4 fill-white' />
           </Button>
         </DialogFooter>
       </DialogContent>
