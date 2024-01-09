@@ -30,7 +30,7 @@ const FreeCounter: React.FC<FreeCounterProps> = ({
     <div className='px-3'>
       <Card className='border-0 bg-white/10'>
         <CardContent className='py-6'>
-          <div className='mb-4 space-y-2 text-center text-sm text-white'>
+          <div className='mb-4 space-y-2 text-sm text-center text-white'>
             <p>
               {apiLimit} / {MAX_FREE_COUNTS} Free Generations
             </p>
@@ -41,11 +41,11 @@ const FreeCounter: React.FC<FreeCounterProps> = ({
           </div>
           <Button
             onClick={proModal.onOpen}
-            variant='premium'
+            variant='default'
             className='w-full'
           >
             Upgrade
-            <Zap className='ml-2 h-4 w-4 fill-white' />
+            <Zap className='w-4 h-4 ml-2 fill-white' />
           </Button>
         </CardContent>
       </Card>
